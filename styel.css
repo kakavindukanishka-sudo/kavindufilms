@@ -1,0 +1,336 @@
+/* ---------- ROOT & RESET ---------- */
+:root {
+    --black: #0e0e0e;
+    --red: #e50914;
+    --gold: #f5c518;
+    --grey: #221f1f;
+    --light: #f5f5f5;
+    --neon: #ff0055;
+    --bebas: 'Bebas Neue', cursive;
+    --poppins: 'Poppins', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--poppins);
+    background: var(--black);
+    color: var(--light);
+    line-height: 1.6;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.section-title {
+    font-family: var(--bebas);
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--gold);
+}
+.btn-primary {
+    background: var(--red);
+    color: #fff;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+.btn-primary:hover {
+    background: #b20710;
+}
+.visually-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+/* ---------- HEADER ---------- */
+.top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(14, 14, 14, 0.95);
+    z-index: 1000;
+    padding: 0.75rem 0;
+}
+.logo {
+    font-family: var(--bebas);
+    font-size: 2rem;
+    color: var(--red);
+    letter-spacing: 2px;
+}
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+.main-nav a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: relative;
+}
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--neon);
+    transition: width 0.3s ease;
+}
+.main-nav a:hover::after {
+    width: 100%;
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+}
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--light);
+    transition: 0.3s;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+    height: 100vh;
+    background: url('https://image.tmdb.org/t/p/original/9yBVqNruk6Ykrwc32qrK2kIEiOx.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+.hero-title {
+    font-family: var(--bebas);
+    font-size: 5rem;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-shadow: 0 0 10px var(--neon);
+}
+.hero-tagline {
+    font-size: 1.3rem;
+    margin: 1rem 0 2rem;
+    color: var(--light);
+}
+
+/* ---------- MOVIE GRID ---------- */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+.movie-card {
+    background: var(--grey);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.movie-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px var(--neon);
+}
+.movie-card img {
+    height: 300px;
+    object-fit: cover;
+}
+.card-info {
+    padding: 1rem;
+    text-align: center;
+}
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+.card-year {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 0.75rem;
+}
+.watch-btn {
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+.watch-btn:hover {
+    background: #e6b80d;
+}
+
+/* ---------- GENRE TABS ---------- */
+.genre-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+.genre-btn {
+    background: transparent;
+    color: var(--light);
+    border: 2px solid var(--red);
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.genre-btn.active,
+.genre-btn:hover {
+    background: var(--red);
+    color: #fff;
+}
+
+/* ---------- ABOUT ---------- */
+.about-sec {
+    padding: 4rem 0;
+    text-align: center;
+}
+.about-sec p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* ---------- CONTACT ---------- */
+.contact-sec {
+    padding: 4rem 0;
+}
+#contactForm {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background: #1b1b1b;
+    color: var(--light);
+    font-size: 1rem;
+}
+#contactForm input:focus,
+#contactForm textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+.form-msg {
+    text-align: center;
+    font-weight: 600;
+    color: var(--neon);
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+    background: var(--grey);
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* ---------- MODAL ---------- */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    place-items: center;
+    z-index: 2000;
+}
+.modal-content {
+    background: #000;
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 850px;
+    width: 90%;
+    position: relative;
+}
+.close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: var(--light);
+    cursor: pointer;
+}
+#trailerBox {
+    width: 100%;
+    height: 450px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(14, 14, 14, 0.98);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: clip-path 0.4s ease;
+    }
+    .main-nav.open {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .main-nav ul {
+        flex-direction: column;
+        padding: 1.5rem 0;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .hero-title {
+        font-size: 3rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+}

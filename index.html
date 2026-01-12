@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavindu | Pure Cinema Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google font for cinema feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER / NAV -->
+    <header class="top-bar">
+        <div class="container flex-between">
+            <h1 class="logo">Kavindu</h1>
+            <nav class="main-nav" id="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#movies">Movies</a></li>
+                    <li><a href="#genres">Genres</a></li>
+                    <li><a href="#trailers">Trailers</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="hero-title">Welcome to Kavindu</h2>
+            <p class="hero-tagline">Where Every Frame Tells a Story</p>
+            <a href="#movies" class="btn-primary">Explore Movies</a>
+        </div>
+    </section>
+
+    <!-- MOVIES SECTION -->
+    <section id="movies" class="movies-sec">
+        <div class="container">
+            <h2 class="section-title">Now Showing</h2>
+            <div class="movie-grid" id="movieGrid">
+                <!-- Movie cards injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- GENRES SECTION -->
+    <section id="genres" class="genres-sec">
+        <div class="container">
+            <h2 class="section-title">Browse by Genre</h2>
+            <div class="genre-tabs" id="genreTabs">
+                <button class="genre-btn active" data-genre="all">All</button>
+                <button class="genre-btn" data-genre="Action">Action</button>
+                <button class="genre-btn" data-genre="Drama">Drama</button>
+                <button class="genre-btn" data-genre="Romance">Romance</button>
+                <button class="genre-btn" data-genre="Sci-Fi">Sci-Fi</button>
+                <button class="genre-btn" data-genre="Horror">Horror</button>
+            </div>
+            <div class="movie-grid" id="genreGrid">
+                <!-- Filtered results appear here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAILERS SECTION (pure anchor, modal handled in JS) -->
+    <section id="trailers" class="trailers-sec visually-hidden"> <!-- only for nav anchor --></section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-sec">
+        <div class="container">
+            <h2 class="section-title">About Kavindu</h2>
+            <p>
+                Kavindu is your personal portal into the magical world of cinema.  
+                We celebrate films from every era and corner of the globe—curating trailers, 
+                spotlighting genres, and delivering the silver-screen experience straight to you.  
+                Sit back, grab popcorn, and let the stories unfold.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact-sec">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <form id="contactForm" novalidate>
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn-primary">Send Message</button>
+                <p class="form-msg" id="formMsg"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Kavindu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- TRAILER MODAL -->
+    <div id="trailerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="trailerBox"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
